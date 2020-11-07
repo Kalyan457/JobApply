@@ -1,0 +1,123 @@
+.jobsList{
+    display: flex;
+    flex-direction: row;
+    border: 1px solid black;
+    width: 95%;
+    margin: auto;
+    text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin-bottom: 2%;
+    margin-top: 2%;
+}
+
+.jobsList>div{
+    border-right: 1px solid gray;
+}
+
+.jobId{
+    width: 5%;
+}
+.jobCompany{
+    width: 10%;
+}
+.jobTitle{
+    width: 15%;
+}
+.jobRequirements{
+    width: 55%;
+}
+.jobVisa{
+    width: 5%;
+}
+.jobApply{
+    width: 5%;
+    margin: auto;
+}
+.jobSave{
+    width: 5%;
+    margin: auto;
+}
+
+.jobDetMob{
+    display: none;
+    background-color: darkcyan;
+}
+
+.applyBtn{
+    width: 100%;
+    padding: 10px;
+    background-color: green;
+    border: none;
+    outline: none;
+    color: white;
+    cursor: pointer;
+}
+.saveBtn{
+    width: 100%;
+    padding: 10px;
+    background-color: blue;
+    border: none;
+    outline: none;
+    color: white;
+    cursor: pointer;
+}
+
+/*Media Queries*/
+
+@media (max-width:600px){
+    .jobsContainer{
+        flex-direction: column;
+    }
+    .jobsList{
+        flex-direction: column;
+    }
+    
+    .jobId{
+        width: 95%;
+        margin: auto;
+        display: flex;
+        flex-direction: row;
+    }
+    .jobCompany{
+        width: 95%;
+        margin: auto;
+        display: flex;
+        flex-direction: row;
+    }
+    .jobTitle{
+        width: 95%;
+        margin: auto;
+        display: flex;
+        flex-direction: row;
+    }
+    .jobRequirements{
+        width: 95%;
+        margin: auto;
+        display: flex;
+        flex-direction: row;
+    }
+    .jobVisa{
+        width: 95%;
+        margin: auto;
+        display: flex;
+        flex-direction: row;
+    }
+    .jobApply{
+        width: 95%;
+        margin: auto;
+    }
+    .jobSave{
+        width: 95%;
+        margin: auto;
+    }
+    .jobsContainer{
+        display: none;
+    }
+    .jobDetMob{
+        display: flex;
+        background-color: darkcyan;
+        width: 26%;
+        padding-right: 1%;
+    }
+
+}

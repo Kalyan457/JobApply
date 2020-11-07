@@ -1,0 +1,84 @@
+.jobsContainer{
+    display: flex;
+    flex-direction: row;
+    border: 1px solid black;
+    width: 95%;
+    margin: auto;
+    text-align: center;
+    background-color: rgb(95, 143, 146);
+}
+
+.jobId{
+    width: 5%;
+}
+.jobCompany{
+    width: 10%;
+}
+.jobTitle{
+    width: 15%;
+}
+.jobRequirements{
+    width: 55%;
+}
+.jobVisa{
+    width: 5%;
+}
+.jobApply{
+    width: 5%;
+    margin: auto;
+}
+.jobSave{
+    width: 5%;
+    margin: auto;
+}
+
+.searchContainer{
+    display: flex;
+    flex-direction: row;
+    padding: 2%;
+    width: 95%;
+}
+
+.inputFields{
+    width: 90%;
+    margin: auto;
+    padding: 0.5%;
+    outline: none;
+}
+
+.filterContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-bottom: 15px;
+}
+
+.dropdown{
+    background-color: #0563af;
+    color: white;
+    padding: 12px;
+    outline: none;
+    border: none;
+}
+.applyFilterBtn{
+    padding: 12px;
+    background-color: #0563af;
+    color: white;
+    outline: none;
+    border: none;
+}
+
+/*Media Queries*/
+
+@media (max-width:600px){
+    .filterContainer{
+        flex-direction: column;
+        margin-left: 10px;
+        margin-bottom: 10px;
+    }
+
+    .dropdown{
+        margin-bottom: 10px;
+        width: 50%;
+    }
+}
