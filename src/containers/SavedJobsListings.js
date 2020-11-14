@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import Auxillary from '../hoc/Auxillary';
-import classes from './JobsListings.css';
+import classes from './SavedJobsListings.css';
 import axios from 'axios';
 
-class jobsListings extends Component{
+class SavedJobsListings extends Component{
        
     applyBtnHandler = (jobId) =>{        
         this.props.CallBack(true,jobId,"apply");
@@ -31,18 +31,17 @@ class jobsListings extends Component{
             })
     }
 
-    saveBtnHandler = (jobId) =>{
-        this.props.CallBack(true,jobId,"save");
-        alert("You saved the jobId: "+jobId);
-        var jId = jobId+"save";
-        document.getElementById(jId).innerText="Saved";
-
+    removeBtnHandler = (jobId) =>{
+        this.props.CallBack(true,jobId,"remove");
+        alert("You unsaved the jobId: "+jobId);
+        var jId = jobId+"remove";
+        document.getElementById(jId).innerText="Removed";
         const dataSentToDB = {
             userId:'1',
             jobId:jobId,
         }
-        console.log(dataSentToDB);
-        axios.post("http://localhost:8888/jobapply/insertSavedJobs.php",dataSentToDB)
+
+        axios.post("http://localhost:8888/jobapply/deleteSavedJobs.php",dataSentToDB)
             .then(res => {
                 console.log(res.data);
             })
@@ -71,7 +70,7 @@ class jobsListings extends Component{
                             <p>{this.props.jobData.jobCompany}</p>
                         </div>
                     </div>
-                    <div className={classes.jobLocation}>
+                    <div className={classes.jobCompany}>
                         <div className={classes.jobDetMob}>
                             <p>Location</p>
                         </div>
@@ -108,15 +107,15 @@ class jobsListings extends Component{
                     className={this.props.jobData.isApplyDisabled ? classes.applyBtnDisabled : classes.applyBtn}
                     id={this.props.jobData.jobId+"apply"}
                     onClick={this.applyBtnHandler.bind(this,this.props.jobData.jobId)}
-                   >Apply</button>                            
+                    >Apply</button>                            
                 <button 
-                    className={this.props.jobData.isSaveDisabled ? classes.saveBtnDisabled : classes.saveBtn}
-                    id={this.props.jobData.jobId+"save"}
-                    onClick={this.saveBtnHandler.bind(this,this.props.jobData.jobId)}
-                    >Save</button>
+                    className={this.props.jobData.isSaveDisabled ? classes.removeBtnDisabled : classes.removeBtn}
+                    id={this.props.jobData.jobId+"remove"}
+                    onClick={this.removeBtnHandler.bind(this,this.props.jobData.jobId)}
+                    >Remove</button>
             </Auxillary>
         );
     }
 }
 
-export default jobsListings;
+export default SavedJobsListings;

@@ -1,15 +1,24 @@
 .pageNums{
     list-style-type: none;
-    float: right;
-    margin-right: 30px;
+    text-align: center;
 }
+
 .pageNumsLI{
     display: inline;
-    padding: 10px;
     border: 1px solid black;
     color: black;
 }
+
+.pageNumsLIActive{
+    display: inline;
+    border: 1px solid black;
+    color: white;
+    background-color: rgb(171, 171, 240);
+}
+
 .pageNumsAnchorTags{
     text-decoration: none;
     color: black;
+    padding: 10px;
+    cursor: pointer;
 }

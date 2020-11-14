@@ -57,7 +57,7 @@
     border-radius: 6%;
 }
 
-.saveBtn{
+.removeBtn{
     background-color: #FFC107;
     border: none;
     outline: none;
@@ -69,7 +69,7 @@
     padding: 0.5%;
 }
 
-.saveBtnDisabled{
+.removeBtnDisabled{
     background-color:#ffe391;
     border: none;
     outline: none;
@@ -169,7 +169,7 @@
         margin-left: 2.5%;
     }
 
-    .saveBtn{
+    .removeBtn{
         background-color: #FFC107;
         border: none;
         outline: none;
@@ -183,7 +183,7 @@
         margin-left: 2.5%;
     }
 
-    .saveBtnDisabled{
+    .removeBtnDisabled{
         background-color:#ffe391;
         border: none;
         outline: none;
@@ -196,4 +196,5 @@
         width: 95.5%;
         margin-left: 2.5%;
     }
+
 }

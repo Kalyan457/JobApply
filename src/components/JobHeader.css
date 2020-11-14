@@ -1,0 +1,52 @@
+.jobsContainer{
+    display: inline-flex;
+    flex-direction: row;
+    border: 1px solid #B8DAFF;
+    width: 85%;
+    text-align: center;
+    background-color: #BEE5EB;
+    margin-left: 2.5%;
+}
+
+.savedJobsContainer{
+    display: inline-flex;
+    flex-direction: row;
+    border: 1px solid #e5edf5;
+    width: 85%;
+    text-align: center;
+    background-color: #BEE5EB;
+    margin-left: 2.5%;
+    margin-top: 10%;
+}
+
+.jobId{
+    width: 5%;
+}
+.jobCompany{
+    width: 10%;
+}
+.jobLocation{
+    width: 10%;
+}
+.jobTitle{
+    width: 15%;
+}
+.jobRequirements{
+    width: 55%;
+}
+.jobVisa{
+    width: 5%;
+}
+
+.headers{
+    font-weight: normal;
+}
+
+@media(max-width:600px){
+    .jobsContainer{
+        display: none;
+    }
+    .savedJobsContainer{
+        display: none;
+    }
+}
