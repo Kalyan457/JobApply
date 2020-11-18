@@ -62,6 +62,40 @@
     cursor: pointer;
 }
 
+.jobsContainer{
+    display: inline-flex;
+    flex-direction: row;
+    border: 1px solid #B8DAFF;
+    width: 80%;
+    text-align: center;
+    background-color: #BEE5EB;
+    margin-left: 2.5%;
+}
+
+.jobId{
+    width: 5%;
+}
+.jobLocation{
+    width: 10%;
+}
+.jobTitle{
+    width: 15%;
+}
+.jobRequirements{
+    width: 65%;
+}
+.jobVisa{
+    width: 5%;
+}
+
+.headers{
+    font-weight: normal;
+}
+
+.noJobs{
+    margin-left: 2.5%;
+}
+
 .loader{
     margin-left: 40%;
 }
@@ -82,5 +116,12 @@
 
     .applyFilterBtn{
         width: 88%;
+    }
+
+    .jobsContainer{
+        display: none;
+    }
+    .savedJobsContainer{
+        display: none;
     }
 }

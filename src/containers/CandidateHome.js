@@ -8,6 +8,7 @@ import Menu from '../components/Menu';
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import Loader from 'react-loader-spinner';
 
 class CandidateHome extends Component{
     state={
@@ -72,14 +73,13 @@ class CandidateHome extends Component{
         jobsAvailable:[],
         currentPage:1,
         jobsPerPage:3,
-
+        loading:true
     }
 
     paginate = (pageNumber) =>{
         this.setState({
             currentPage:pageNumber
         })
-        console.log(this);
     } 
 
     callBackToJobsListings = (disabledBtn,btnId,whichBtn) =>{
@@ -135,7 +135,8 @@ class CandidateHome extends Component{
             .then(res => {
                 console.log(res.data);
                 this.setState({
-                    jobsAvailable:res.data
+                    jobsAvailable:res.data,
+                    loading:false
                 })
             })
             .catch(function (error){
@@ -158,7 +159,8 @@ class CandidateHome extends Component{
             .then(res => {
                 console.log(res.data);
                 this.setState({
-                    jobsAvailable:res.data
+                    jobsAvailable:res.data,
+                    loading:false
                 })
             })
             .catch(function (error) {
@@ -174,14 +176,31 @@ class CandidateHome extends Component{
     render(){
         const indexOfLastJob = this.state.currentPage * this.state.jobsPerPage;
         const indexOfFirstJob = indexOfLastJob - this.state.jobsPerPage;
-        const currentJobs = this.state.jobsAvailable.slice(indexOfFirstJob, indexOfLastJob);
+        var currentJobs;
+        if(this.state.jobsAvailable.length>0){
+            currentJobs = this.state.jobsAvailable.slice(indexOfFirstJob, indexOfLastJob);
+            var jobs = currentJobs.map((eachJob) => (<JobsListings key={eachJob.jobId} jobData={eachJob} CallBack = {this.callBackToJobsListings}/>));
+            var paging = (
+                <Pagination
+                    jobsPerPage={this.state.jobsPerPage}
+                    totalJobs={this.state.jobsAvailable.length}
+                    paginate={this.paginate}
+                    curNumber={this.state.currentPage}
+                />);
+        }
+        else if(this.state.loading){
+            jobs = <Loader type="ThreeDots" color="#2BAD60" height="100" width="100" className={classes.loader}/>
+        }
+        else{
+            jobs = (<h1 className={classes.noJobs}>No Jobs Available</h1>);
+        }
         return(
             <Auxillary>
                 <Menu />
 
                 <div className={classes.searchContainer}>
-                    <input className={classes.inputFields} placeholder="Search..."/>
-                    <div className={classes.searchIcon}>
+                    <input className={classes.inputFields} id = "searchTxtBox" placeholder="Search..."/>
+                    <div className={classes.searchIcon} onClick={this.searchHandler}>
                         <FontAwesomeIcon icon={faSearch} size="1x"/>
                     </div>
                 </div>
@@ -231,14 +250,17 @@ class CandidateHome extends Component{
                 
                 <JobHeader />
 
-                { currentJobs.map((eachJob) => (<JobsListings key={eachJob.jobId} jobData={eachJob} CallBack = {this.callBackToJobsListings}/>))}
+                {/* { currentJobs.map((eachJob) => (<JobsListings key={eachJob.jobId} jobData={eachJob} CallBack = {this.callBackToJobsListings}/>))}
                 
                 <Pagination
                     jobsPerPage={this.state.jobsPerPage}
                     totalJobs={this.state.jobsAvailable.length}
                     paginate={this.paginate}
                     curNumber={this.state.currentPage}
-                />
+                /> */}
+
+                {jobs}
+                {paging}
             </Auxillary>
         );
     }

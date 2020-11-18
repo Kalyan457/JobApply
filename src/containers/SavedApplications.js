@@ -5,6 +5,8 @@ import Pagination from '../components/Pagination';
 import JobHeader from '../components/JobHeader';
 import Menu from '../components/Menu';
 import axios from 'axios';
+import classes from './SavedApplications.css';
+import Loader from 'react-loader-spinner';
 
 class SavedApplications extends Component{
     state={
@@ -69,7 +71,7 @@ class SavedApplications extends Component{
         savedJobs :[],
         currentPage:1,
         jobsPerPage:2,
-
+        loading:true
     }
 
     paginate = (pageNumber) =>{
@@ -86,7 +88,8 @@ class SavedApplications extends Component{
             .then(res => {
                 console.log(res.data);
                 this.setState({
-                    savedJobs:res.data
+                    savedJobs:res.data,
+                    loading:false
                 })
             })
             .catch(function (error) {
@@ -94,7 +97,7 @@ class SavedApplications extends Component{
             })
     }
 
-    callBackToSavedJobsListings = (disabledBtn,btnId,whichBtn) =>{
+    callBackToSavedJobsListings = (btnId,whichBtn) =>{
         var allJobs = this.state.savedJobs;
         if(whichBtn==="apply"){
             for(var i=0;i<allJobs.length;i++){
@@ -129,20 +132,28 @@ class SavedApplications extends Component{
         var currentJobs;
         if(this.state.savedJobs.length>0){
             currentJobs = this.state.savedJobs.slice(indexOfFirstJob, indexOfLastJob);
-            var codeIs = currentJobs.map((eachJob) =>(<SavedJobsListings key={eachJob.jobId} jobData={eachJob} CallBack = {this.callBackToSavedJobsListings}/>))
-        }
-        return(
-            <Auxillary>
-                <Menu />
-                <JobHeader noFilterSearch={true}/>
-                {codeIs}
-                {/* { currentJobs.map((eachJob) =>(<SavedJobsListings key={eachJob.jobId} jobData={eachJob} CallBack = {this.callBackToSavedJobsListings}/>))} */}
+            var jobs = currentJobs.map((eachJob) =>(<SavedJobsListings key={eachJob.jobId} jobData={eachJob} CallBack = {this.callBackToSavedJobsListings}/>))
+            var paging = (
                 <Pagination
                     jobsPerPage={this.state.jobsPerPage}
                     totalJobs={this.state.savedJobs.length}
                     paginate={this.paginate}
                     curNumber = {this.state.currentPage}
                 />
+            )
+        }
+        else if(this.state.loading){
+            jobs = <Loader type="ThreeDots" color="#2BAD60" height="100" width="100" className={classes.loader}/>
+        }
+        else{
+            jobs = (<h1 className={classes.noJobs}>No Jobs Saved</h1>);
+        }
+        return(
+            <Auxillary>
+                <Menu />
+                <JobHeader noFilterSearch={true}/>
+                {jobs}
+                {paging}
             </Auxillary>
         );
     }

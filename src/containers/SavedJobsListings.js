@@ -6,10 +6,9 @@ import axios from 'axios';
 class SavedJobsListings extends Component{
        
     applyBtnHandler = (jobId) =>{        
-        this.props.CallBack(true,jobId,"apply");
+        this.props.CallBack(jobId,"apply");
         alert("You applied to the jobId: "+jobId);
-        var jId = jobId+"apply";
-        document.getElementById(jId).innerText="Applied";
+    
         var today = new Date();
         var dd = String(today.getDate()).padStart(2, '0');
         var mm = String(today.getMonth() + 1).padStart(2, '0');
@@ -32,10 +31,9 @@ class SavedJobsListings extends Component{
     }
 
     removeBtnHandler = (jobId) =>{
-        this.props.CallBack(true,jobId,"remove");
+        this.props.CallBack(jobId,"remove");
         alert("You unsaved the jobId: "+jobId);
-        var jId = jobId+"remove";
-        document.getElementById(jId).innerText="Removed";
+        
         const dataSentToDB = {
             userId:'1',
             jobId:jobId,
@@ -105,12 +103,12 @@ class SavedJobsListings extends Component{
                 </div>
                 <button 
                     className={this.props.jobData.isApplyDisabled ? classes.applyBtnDisabled : classes.applyBtn}
-                    id={this.props.jobData.jobId+"apply"}
+                    id={this.props.jobData.jobId}
                     onClick={this.applyBtnHandler.bind(this,this.props.jobData.jobId)}
-                    >Apply</button>                            
+                    >{this.props.jobData.isApplyDisabled ? "Applied" : "Apply"}</button>                     
                 <button 
                     className={this.props.jobData.isSaveDisabled ? classes.removeBtnDisabled : classes.removeBtn}
-                    id={this.props.jobData.jobId+"remove"}
+                    id={this.props.jobData.jobId}
                     onClick={this.removeBtnHandler.bind(this,this.props.jobData.jobId)}
                     >Remove</button>
             </Auxillary>

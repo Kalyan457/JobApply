@@ -1,45 +1,25 @@
-import React, {Component} from 'react';
+import React,{Component} from 'react';
+import classes from './RecruiterJobsListings.css';
 import Auxillary from '../hoc/Auxillary';
-import classes from './JobsListings.css';
 import axios from 'axios';
 
-class jobsListings extends Component{
-       
-    applyBtnHandler = (jobId) =>{        
-        this.props.CallBack(true,jobId,"apply");
-        alert("You applied to the jobId: "+jobId);
-        
-        var today = new Date();
-        var dd = String(today.getDate()).padStart(2, '0');
-        var mm = String(today.getMonth() + 1).padStart(2, '0');
-        var yyyy = today.getFullYear();
-        today = yyyy + '-' + mm + '-' + dd;
+class RecruiterJobsListings extends Component{
 
-        const dataSentToDB = {
-            userId:'1',
-            jobId:jobId,
-            appliedDate: today
-        }
-
-        axios.post("http://localhost:8888/jobapply/insertAppliedJobs.php",dataSentToDB)
-            .then(res => {
-                console.log(res.data);
-            })
-            .catch(function (error){
-                console.log(error);
-            })
+    viewApplicantsBtnHandler = (jobId) =>{
+        // should include a db call to populate all applicants for this jobid
+        // should be done in viewApplicants page
     }
 
-    saveBtnHandler = (jobId) =>{
-        this.props.CallBack(true,jobId,"save");
-        alert("You saved the jobId: "+jobId);
+    removeBtnHandler = (jobId) =>{
+        this.props.CallBack(jobId,"remove");
+        alert("You removed the jobId: "+jobId);
         
         const dataSentToDB = {
             userId:'1',
             jobId:jobId,
         }
-        console.log(dataSentToDB);
-        axios.post("http://localhost:8888/jobapply/insertSavedJobs.php",dataSentToDB)
+
+        axios.post("http://localhost:8888/jobapply/disablePostedJobs.php",dataSentToDB)
             .then(res => {
                 console.log(res.data);
             })
@@ -58,14 +38,6 @@ class jobsListings extends Component{
                         </div>
                         <div>
                             <p>{this.props.jobData.jobId}</p>
-                        </div>
-                    </div>
-                    <div className={classes.jobCompany}>
-                        <div className={classes.jobDetMob}>
-                            <p>Company</p>
-                        </div>
-                        <div>
-                            <p>{this.props.jobData.jobCompany}</p>
                         </div>
                     </div>
                     <div className={classes.jobLocation}>
@@ -102,18 +74,17 @@ class jobsListings extends Component{
                     </div>
                 </div>
                 <button 
-                    className={this.props.jobData.isApplyDisabled ? classes.applyBtnDisabled : classes.applyBtn}
-                    id={this.props.jobData.jobId+"apply"}
-                    onClick={this.applyBtnHandler.bind(this,this.props.jobData.jobId)}
-                   >{this.props.jobData.isApplyDisabled ? "Applied" : "Apply"}</button>                            
+                    className={this.props.jobData.isActive == '1' ? classes.viewApplicantsBtn : classes.viewApplicantsBtnDisabled}
+                    id={this.props.jobData.jobId}
+                    onClick={this.viewApplicantsBtnHandler.bind(this,this.props.jobData.jobId)}
+                   >View Applicants</button>                            
                 <button 
-                    className={this.props.jobData.isSaveDisabled ? classes.saveBtnDisabled : classes.saveBtn}
-                    id={this.props.jobData.jobId+"save"}
-                    onClick={this.saveBtnHandler.bind(this,this.props.jobData.jobId)}
-                    >{this.props.jobData.isSaveDisabled ? "Saved" : "Save"}</button>
+                    className={this.props.jobData.isActive == '1' ? classes.removeBtn : classes.removeBtnDisabled}
+                    id={this.props.jobData.jobId}
+                    onClick={this.removeBtnHandler.bind(this,this.props.jobData.jobId)}
+                    >{this.props.jobData.isActive == '1' ? "Remove" : "Removed"}</button>
             </Auxillary>
         );
     }
 }
-
-export default jobsListings;
+export default RecruiterJobsListings;

@@ -5,13 +5,15 @@ import Pagination from '../components/Pagination';
 import JobHeader from '../components/JobHeader';
 import Menu from '../components/Menu';
 import axios from 'axios';
+import classes from './TrackApplications.css';
+import Loader from 'react-loader-spinner';
 
 class TrackApplications extends Component{
     state={
         appliedJobs :[],
         currentPage:1,
         jobsPerPage:2,
-
+        loading:true
     }
 
     paginate = (pageNumber) =>{
@@ -28,7 +30,8 @@ class TrackApplications extends Component{
             .then(res => {
                 console.log(res.data);
                 this.setState({
-                    appliedJobs:res.data
+                    appliedJobs:res.data,
+                    loading:false
                 })
             })
             .catch(function (error) {
@@ -42,19 +45,28 @@ class TrackApplications extends Component{
         var currentJobs;
         if(this.state.appliedJobs.length>0){
             currentJobs = this.state.appliedJobs.slice(indexOfFirstJob, indexOfLastJob);
-            var codeIs = currentJobs.map((eachJob) =>(<TrackJobsListings key={eachJob.jobId} jobData={eachJob} />))
-        }
-        return(
-            <Auxillary>
-                <Menu />
-                <JobHeader noFilterSearch={true}/>
-                {codeIs}
+            var jobs = currentJobs.map((eachJob) =>(<TrackJobsListings key={eachJob.jobId} jobData={eachJob} />));
+            var paging = (
                 <Pagination
                     jobsPerPage={this.state.jobsPerPage}
                     totalJobs={this.state.appliedJobs.length}
                     paginate={this.paginate}
                     curNumber = {this.state.currentPage}
                 />
+            );
+        }
+        else if(this.state.loading){
+            jobs = <Loader type="ThreeDots" color="#2BAD60" height="100" width="100" className={classes.loader}/>
+        }
+        else{
+            jobs = (<h1 className={classes.noJobs}>No jobs posted</h1>);
+        }
+        return(
+            <Auxillary>
+                <Menu />
+                <JobHeader noFilterSearch={true} />
+                {jobs}
+                {paging}
             </Auxillary>
         );
     }
