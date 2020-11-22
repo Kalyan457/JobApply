@@ -1,0 +1,100 @@
+CREATE TABLE userinfo (
+    userid int NOT NULL AUTO_INCREMENT,
+    FirstName varchar(255) NOT NULL,
+    LastName varchar(255) NOT NULL,
+    isHR int,
+    emailid varchar(255) NOT NULL,
+    password varchar(100) NOT NULL,
+    PRIMARY KEY (userid)
+);
+
+CREATE TABLE commoninfo (
+    userid int NOT NULL,
+    ProtectedVeteran int,
+    RequireVisa int,
+    isAgeAbove18 int,
+    HispanicLatino int,
+    Race varchar(50),
+    DisabilityStatus varchar(50),
+    Gender varchar(20),
+    Phone varchar(10),
+    Address varchar(255),
+    PRIMARY KEY (userid),
+    FOREIGN KEY (userid) REFERENCES userinfo(userid)
+);
+
+
+CREATE TABLE jobspostings (
+    userid int NOT NULL,
+    jobid int AUTO_INCREMENT NOT NULL,
+    jobdescription text NOT NULL,
+    joblocation varchar(255) NOT NULL,
+    jobrequirements varchar(255) NOT NULL,
+    jobcompany varchar(100) NOT NULL,
+    posteddate datetime,
+    isactive int DEFAULT 1,
+    jobtitle varchar(255) NOT NULL,
+    jobvisa varchar(255) NOT NULL,
+    PRIMARY KEY (jobid)
+);
+
+CREATE TABLE jobsapplied (
+    userid int NOT NULL,
+    jobid int NOT NULL,
+    applieddate datetime,
+    jobStatus varchar(50) DEFAULT 'Under Review',
+    FOREIGN KEY (userid) REFERENCES userinfo(userid),
+    FOREIGN KEY (jobid) REFERENCES jobspostings(jobid)
+);
+
+
+CREATE TABLE payments (
+    userid int NOT NULL,
+    orderid int AUTO_INCREMENT NOT NULL,
+    jobid int NOT NULL,
+    orderdate datetime,
+    PRIMARY KEY (orderid),
+    FOREIGN KEY (userid) REFERENCES userinfo(userid),
+    FOREIGN KEY (jobid) REFERENCES jobspostings(jobid)
+);
+
+
+CREATE TABLE savedjobs (
+    userid int NOT NULL,
+    jobid int NOT NULL,
+    FOREIGN KEY (userid) REFERENCES userinfo(userid),
+    FOREIGN KEY (jobid) REFERENCES jobspostings(jobid)
+);
+
+CREATE TABLE socialmedialinks(
+    userid int NOT NULL,
+    link int NOT NULL,
+    FOREIGN KEY (userid) REFERENCES userinfo(userid)
+);
+
+CREATE TABLE usercompany (
+    userid int NOT NULL,
+    companyname varchar(50) NOT NULL,
+    PRIMARY KEY (userid),
+    FOREIGN KEY (userid) REFERENCES userinfo(userid)
+);
+
+CREATE TABLE workexperience(
+    userid int NOT NULL,
+    WorkExCompanyName varchar(100) NOT NULL,
+    WorkExDescription text,
+    WorkedFrom datetime,
+    WorkedTo datetime,
+    FOREIGN KEY (userid) REFERENCES userinfo(userid)
+);
+
+CREATE TABLE academics(
+    userid int NOT NULL,
+    university varchar(255) NOT NULL,
+    major varchar(255) NOT NULL,
+    cgpa float,
+    attendedFrom datetime,
+    graduationDate datetime,
+    FOREIGN KEY (userid) REFERENCES userinfo(userid)
+);
+
