@@ -1,0 +1,10 @@
+INSERT INTO userinfo (FirstName,LastName,isHR,emailid,password) VALUES ('Kalyan','Kancharla',0,'kalyankancharla457@gmail.com','thisismypassword');
+INSERT into jobspostings (userid,jobdescription,joblocation,jobrequirements,jobcompany,posteddate,isactive,jobtitle,jobvisa) VALUES(1,"Description 1","Seattle","Requirements 1","Amazon",now(),1,"Software Engineer","Yes");
+INSERT into jobspostings (userid,jobdescription,joblocation,jobrequirements,jobcompany,posteddate,isactive,jobtitle,jobvisa) VALUES(1,"Description 2","New York","Requirements 2","Google",now(),1,"Software Developer","Yes");
+INSERT into jobspostings (userid,jobdescription,joblocation,jobrequirements,jobcompany,posteddate,isactive,jobtitle,jobvisa) VALUES(1,"Description 3","California","Requirements 3","IBM",now(),1,"ML Engineer","No");
+INSERT into jobspostings (userid,jobdescription,joblocation,jobrequirements,jobcompany,posteddate,isactive,jobtitle,jobvisa) VALUES(1,"Description 4","Texas","Requirements 4","Epsilon",now(),1,"Front End Engineer","Yes");
+INSERT into jobspostings (userid,jobdescription,joblocation,jobrequirements,jobcompany,posteddate,isactive,jobtitle,jobvisa) VALUES(1,"Description 5","Seattle","Requirements 5","Two Sigma",now(),1,"Software Engineer","Yes");
+INSERT into jobspostings (userid,jobdescription,joblocation,jobrequirements,jobcompany,posteddate,isactive,jobtitle,jobvisa) VALUES(1,"Description 6","Dallas","Requirements 6","Copart",now(),1,"Database Developer","Yes");
+INSERT into jobspostings (userid,jobdescription,joblocation,jobrequirements,jobcompany,posteddate,isactive,jobtitle,jobvisa) VALUES(1,"Description 7","Texas","Requirements 7","Paycom",now(),1,"ML Engineer","No");
+INSERT into jobspostings (userid,jobdescription,joblocation,jobrequirements,jobcompany,posteddate,isactive,jobtitle,jobvisa) VALUES(1,"Description 8","Washington","Requirements 8","Databricks",now(),1,"Back End Engineer","Yes");
+

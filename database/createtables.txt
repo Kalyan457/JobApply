@@ -35,7 +35,8 @@ CREATE TABLE jobspostings (
     isactive int DEFAULT 1,
     jobtitle varchar(255) NOT NULL,
     jobvisa varchar(255) NOT NULL,
-    PRIMARY KEY (jobid)
+    PRIMARY KEY (jobid),
+    FOREIGN KEY (userid) REFERENCES userinfo(userid)
 );
 
 CREATE TABLE jobsapplied (
