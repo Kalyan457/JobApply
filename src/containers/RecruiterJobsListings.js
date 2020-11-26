@@ -37,7 +37,7 @@ class RecruiterJobsListings extends Component{
                             <p>Job Id</p>
                         </div>
                         <div>
-                            <p>{this.props.jobData.jobId}</p>
+                            <p className={classes.pTags}>{this.props.jobData.jobId}</p>
                         </div>
                     </div>
                     <div className={classes.jobLocation}>
@@ -45,7 +45,7 @@ class RecruiterJobsListings extends Component{
                             <p>Location</p>
                         </div>
                         <div>
-                            <p>{this.props.jobData.jobLocation}</p>
+                            <p className={classes.pTags}>{this.props.jobData.jobLocation}</p>
                         </div>
                     </div>
                     <div className={classes.jobTitle}>
@@ -53,7 +53,7 @@ class RecruiterJobsListings extends Component{
                             <p>Title</p>
                         </div>
                         <div>
-                            <p>{this.props.jobData.jobTitle}</p>
+                            <p className={classes.pTags}>{this.props.jobData.jobTitle}</p>
                         </div>
                     </div>
                     <div className={classes.jobRequirements}>
@@ -61,7 +61,7 @@ class RecruiterJobsListings extends Component{
                             <p>Requirements</p>
                         </div>
                         <div>
-                            <p>{this.props.jobData.jobRequirements}</p> 
+                            <p className={classes.pTags}>{this.props.jobData.jobRequirements}</p> 
                         </div>
                     </div>
                     <div className={classes.jobVisa}>
@@ -69,7 +69,7 @@ class RecruiterJobsListings extends Component{
                             <p>Visa</p>
                         </div>
                         <div>
-                            <p>{this.props.jobData.jobVisa}</p>
+                            <p className={classes.pTags}>{this.props.jobData.jobVisa}</p>
                         </div>
                     </div>
                 </div>

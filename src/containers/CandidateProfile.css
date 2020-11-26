@@ -1,0 +1,10 @@
+.candidateprofile{
+    /* background-image: url("../images/background2.png"); */
+    background-size: auto;
+    width: 100%;
+    max-width: 700px;
+    padding: 15px;
+    margin: auto;
+    height:100%
+}
+  

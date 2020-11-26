@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Auxillary from '../hoc/Auxillary';
-import SavedJobsListings from './SavedJobsListings';
+// import SavedJobsListings from './SavedJobsListings';
+import AllListings from './AllListings';
 import Pagination from '../components/Pagination';
 import JobHeader from '../components/JobHeader';
 import Menu from '../components/Menu';
@@ -132,7 +133,8 @@ class SavedApplications extends Component{
         var currentJobs;
         if(this.state.savedJobs.length>0){
             currentJobs = this.state.savedJobs.slice(indexOfFirstJob, indexOfLastJob);
-            var jobs = currentJobs.map((eachJob) =>(<SavedJobsListings key={eachJob.jobId} jobData={eachJob} CallBack = {this.callBackToSavedJobsListings}/>))
+            //var jobs = currentJobs.map((eachJob) =>(<SavedJobsListings key={eachJob.jobId} jobData={eachJob} CallBack = {this.callBackToSavedJobsListings}/>))
+            var jobs = currentJobs.map((eachJob) =>(<AllListings key={eachJob.jobId} jobData={eachJob} CallBack = {this.callBackToSavedJobsListings} savedApplications = {true}/>))
             var paging = (
                 <Pagination
                     jobsPerPage={this.state.jobsPerPage}

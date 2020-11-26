@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Auxillary from '../hoc/Auxillary';
 import classes from './CandidateHome.css';
-import JobsListings from './JobsListings';
+// import JobsListings from './JobsListings';
+import AllListings from './AllListings';
 import Pagination from '../components/Pagination';
 import JobHeader from '../components/JobHeader';
 import Menu from '../components/Menu';
@@ -179,7 +180,8 @@ class CandidateHome extends Component{
         var currentJobs;
         if(this.state.jobsAvailable.length>0){
             currentJobs = this.state.jobsAvailable.slice(indexOfFirstJob, indexOfLastJob);
-            var jobs = currentJobs.map((eachJob) => (<JobsListings key={eachJob.jobId} jobData={eachJob} CallBack = {this.callBackToJobsListings}/>));
+            // var jobs = currentJobs.map((eachJob) => (<JobsListings key={eachJob.jobId} jobData={eachJob} CallBack = {this.callBackToJobsListings}/>));
+            var jobs = currentJobs.map((eachJob) => (<AllListings key={eachJob.jobId} jobData={eachJob} CallBack = {this.callBackToJobsListings} candidateHome = {true}/>));
             var paging = (
                 <Pagination
                     jobsPerPage={this.state.jobsPerPage}

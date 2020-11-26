@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Auxillary from '../hoc/Auxillary';
-import TrackJobsListings from './TrackJobsListings';
+import AllListings from './AllListings';
 import Pagination from '../components/Pagination';
 import JobHeader from '../components/JobHeader';
 import Menu from '../components/Menu';
@@ -45,7 +45,8 @@ class TrackApplications extends Component{
         var currentJobs;
         if(this.state.appliedJobs.length>0){
             currentJobs = this.state.appliedJobs.slice(indexOfFirstJob, indexOfLastJob);
-            var jobs = currentJobs.map((eachJob) =>(<TrackJobsListings key={eachJob.jobId} jobData={eachJob} />));
+            // var jobs = currentJobs.map((eachJob) =>(<TrackJobsListings key={eachJob.jobId} jobData={eachJob} />));
+            var jobs = currentJobs.map((eachJob) =>(<AllListings key={eachJob.jobId} jobData={eachJob} trackApplications = {true} />));
             var paging = (
                 <Pagination
                     jobsPerPage={this.state.jobsPerPage}

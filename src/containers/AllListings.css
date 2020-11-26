@@ -1,7 +1,7 @@
 .jobsList{
     display: inline-flex;
     flex-direction: row;
-    width: 80%;
+    width: 85%;
     text-align: center;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
     margin-top: 2%;
@@ -11,7 +11,9 @@
 .jobId{
     width: 5%;
 }
-
+.jobCompany{
+    width: 10%;
+}
 .jobLocation{
     width: 10%;
 }
@@ -19,7 +21,7 @@
     width: 15%;
 }
 .jobRequirements{
-    width: 65%;
+    width: 55%;
 }
 .jobVisa{
     width: 5%;
@@ -30,7 +32,7 @@
     background-color: darkcyan;
 }
 
-.viewApplicantsBtn{
+.applyBtn{
     background-color: #28A745;
     border: none;
     outline: none;
@@ -42,7 +44,7 @@
     padding: 0.5%;
 }
 
-.viewApplicantsBtnDisabled{
+.applyBtnDisabled{
     background-color: #89eea1;
     cursor: not-allowed;
     border: none;
@@ -54,6 +56,31 @@
     padding: 0.5%;
     border-radius: 6%;
 }
+
+.saveBtn{
+    background-color: #FFC107;
+    border: none;
+    outline: none;
+    color:white;
+    cursor: pointer;
+    border-radius: 6%;
+    margin-left: 1%;
+    font-size: 14px;
+    padding: 0.5%;
+}
+
+.saveBtnDisabled{
+    background-color:#ffe391;
+    border: none;
+    outline: none;
+    color: white;
+    cursor: not-allowed;
+    border-radius: 6%;
+    margin-left: 1%;
+    font-size: 14px;
+    padding: 0.5%;
+}
+
 
 .removeBtn{
     background-color: #FFC107;
@@ -83,6 +110,14 @@
     margin-top: 16px;
     margin-bottom: 16px;
 }
+
+.jobStatus{
+    background-color: teal;
+    color: white;
+    padding: 1%;
+    margin-left: 0.5%;
+}
+
 
 /*Media Queries*/
 
@@ -143,7 +178,7 @@
         width: 32%;
     }
     
-    .viewApplicantsBtn{
+    .applyBtn{
         background-color: #28A745;
         border: none;
         outline: none;
@@ -156,6 +191,50 @@
         width: 95.5%;
         margin-left: 2.5%;
     }
+
+    .applyBtnDisabled{
+        background-color: #89eea1;
+        cursor: not-allowed;
+        border: none;
+        outline: none;
+        color: white;
+        display: inline; 
+        margin-left: 1%;
+        font-size: 14px;
+        padding: 0.5%;
+        border-radius: 0%;
+        width: 95.5%;
+        margin-left: 2.5%;
+    }
+
+    .saveBtn{
+        background-color: #FFC107;
+        border: none;
+        outline: none;
+        color:white;
+        cursor: pointer;
+        border-radius: 0%;
+        margin-left: 1%;
+        font-size: 14px;
+        padding: 0.5%;
+        width: 95.5%;
+        margin-left: 2.5%;
+    }
+
+    .saveBtnDisabled{
+        background-color:#ffe391;
+        border: none;
+        outline: none;
+        color: white;
+        cursor: not-allowed;
+        border-radius: 0%;
+        margin-left: 1%;
+        font-size: 14px;
+        padding: 0.5%;
+        width: 95.5%;
+        margin-left: 2.5%;
+    }
+    
 
     .removeBtn{
         background-color: #FFC107;
