@@ -8,16 +8,18 @@
 
 	$postdata = json_decode(file_get_contents("php://input"));
 
-	if(isset($postdata->userId) && isset($postdata->jobId)){
-		$userId = $postdata->userId;
-		$jobId = $postdata->jobId;
+	if(isset($postdata->userId)) {
+		$userId = $postdata->userId; //userid: candidate or recruiter id
 
 		$conn = mysqli_connect('localhost:8889', 'root', 'root', 'jobapply');
 
-		$sql = "delete from savedjobs where userid ='$userId' and jobid = '$jobId'";
-
+		$sql = "select userid, firstname, lastname, isHR, emailid from userinfo where userid = $userId";
+		
 		$result = mysqli_query($conn,$sql);
-
-		echo $sql;
+		$json_array = array();
+		while($row = mysqli_fetch_assoc($result)){
+			$json_array[] = $row;
+		}
+		echo json_encode($json_array);
 	}
 ?>

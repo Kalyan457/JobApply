@@ -13,59 +13,61 @@
 		$selectedTitle = $postdata->selectedTitle;
 		$selectedLocation = $postdata->selectedLocation;
 		$selectedVisa = $postdata->selectedVisa;
-		$userId = $postdata->userId;
+		$searchText = $postdata->searchText;
+		$userId = $postdata->userId; //userid is candidate id
 
 		$conn = mysqli_connect('localhost:8889', 'root', 'root', 'jobapply');
 
 		if($selectedCompany == "allCompanies" && $selectedTitle == "allTitles" && $selectedLocation == "allLocations" && $selectedVisa == "allVisa"){
-			$sql = "select jobId,jobCompany,jobLocation,jobTitle,jobRequirements,jobVisa from jobspostings where jobId not in (select jobId from jobsapplied where userId = '$userId')";
+			$sql = "select jp.jobid, uc.companyname, jp.joblocation, jp.jobtitle,jp.jobrequirements, jp.posteddate,jp.visasponser from jobspostings as jp INNER JOIN usercompany as uc ON jp.userid=uc.userid where jp.jobid not in (select jobid from jobsapplied where userid = '$userId')";
 		}
 		else if($selectedCompany != "allCompanies" && $selectedTitle != "allTitles" && $selectedLocation != "allLocations" && $selectedVisa != "allVisa"){
-			$sql = "select jobId,jobCompany,jobLocation,jobTitle,jobRequirements,jobVisa from jobspostings where jobcompany = '$selectedCompany' and jobtitle = '$selectedTitle' and joblocation = '$selectedLocation' and jobvisa = '$selectedVisa' and jobId not in (select jobId from jobsapplied where userId = '$userId')";
+			$sql = "select jp.jobid, uc.companyname, jp.joblocation, jp.jobtitle,jp.jobrequirements, jp.posteddate,jp.visasponser from jobspostings as jp INNER JOIN usercompany as uc ON jp.userid=uc.userid where uc.companyname = '$selectedCompany' and jp.jobtitle = '$selectedTitle' and jp.joblocation = '$selectedLocation' and jp.visasponser = '$selectedVisa' and jp.jobid not in (select jobid from jobsapplied where userid = '$userId')";
 		}
 		else if($selectedCompany != "allCompanies" && $selectedTitle != "allTitles" && $selectedLocation != "allLocations" && $selectedVisa == "allVisa"){
-			$sql = "select jobId,jobCompany,jobLocation,jobTitle,jobRequirements,jobVisa from jobspostings where jobcompany = '$selectedCompany' and jobtitle = '$selectedTitle' and joblocation = '$selectedLocation' and jobId not in (select jobId from jobsapplied where userId = '$userId')";
+			$sql = "select jp.jobid, uc.companyname, jp.joblocation, jp.jobtitle,jp.jobrequirements, jp.posteddate,jp.visasponser from jobspostings as jp INNER JOIN usercompany as uc ON jp.userid=uc.userid where uc.companyname = '$selectedCompany' and jp.jobtitle = '$selectedTitle' and jp.joblocation = '$selectedLocation' and jobid not in (select jobid from jobsapplied where userid = '$userId')";
 		}
 		else if($selectedCompany != "allCompanies" && $selectedTitle != "allTitles" && $selectedLocation == "allLocations" && $selectedVisa != "allVisa"){
-			$sql = "select jobId,jobCompany,jobLocation,jobTitle,jobRequirements,jobVisa from jobspostings where jobcompany = '$selectedCompany' and jobtitle = '$selectedTitle' and jobvisa = '$selectedVisa' and jobId not in (select jobId from jobsapplied where userId = '$userId')";
+			$sql = "select jp.jobid, uc.companyname, jp.joblocation, jp.jobtitle,jp.jobrequirements, jp.posteddate,jp.visasponser from jobspostings as jp INNER JOIN usercompany as uc ON jp.userid=uc.userid where uc.companyname = '$selectedCompany' and jp.jobtitle = '$selectedTitle' and jp.visasponser = '$selectedVisa' and jobid not in (select jobid from jobsapplied where userid = '$userId')";
 		}
 		else if($selectedCompany != "allCompanies" && $selectedTitle != "allTitles" && $selectedLocation == "allLocations" && $selectedVisa == "allVisa"){
-			$sql = "select jobId,jobCompany,jobLocation,jobTitle,jobRequirements,jobVisa from jobspostings where jobcompany = '$selectedCompany' and jobtitle = '$selectedTitle' and jobId not in (select jobId from jobsapplied where userId = '$userId')";
+			$sql = "select jp.jobid, uc.companyname, jp.joblocation, jp.jobtitle,jp.jobrequirements, jp.posteddate,jp.visasponser from jobspostings as jp INNER JOIN usercompany as uc ON jp.userid=uc.userid where uc.companyname = '$selectedCompany' and jp.jobtitle = '$selectedTitle' and jobid not in (select jobid from jobsapplied where userid = '$userId')";
 		}
 		else if($selectedCompany != "allCompanies" && $selectedTitle == "allTitles" && $selectedLocation != "allLocations" && $selectedVisa != "allVisa"){
-			$sql = "select jobId,jobCompany,jobLocation,jobTitle,jobRequirements,jobVisa from jobspostings where jobcompany = '$selectedCompany' and joblocation = '$selectedLocation' and jobvisa = '$selectedVisa' and jobId not in (select jobId from jobsapplied where userId = '$userId')";
+			$sql = "select jp.jobid, uc.companyname, jp.joblocation, jp.jobtitle,jp.jobrequirements, jp.posteddate,jp.visasponser from jobspostings as jp INNER JOIN usercompany as uc ON jp.userid=uc.userid where uc.companyname = '$selectedCompany' and jp.joblocation = '$selectedLocation' and jp.visasponser = '$selectedVisa' and jobid not in (select jobid from jobsapplied where userid = '$userId')";
 		}
 		else if($selectedCompany != "allCompanies" && $selectedTitle == "allTitles" && $selectedLocation != "allLocations" && $selectedVisa == "allVisa"){
-			$sql = "select jobId,jobCompany,jobLocation,jobTitle,jobRequirements,jobVisa from jobspostings where jobcompany = '$selectedCompany' and joblocation = '$selectedLocation' and jobId not in (select jobId from jobsapplied where userId = '$userId')";
+			$sql = "select jp.jobid, uc.companyname, jp.joblocation, jp.jobtitle,jp.jobrequirements, jp.posteddate,jp.visasponser from jobspostings as jp INNER JOIN usercompany as uc ON jp.userid=uc.userid where uc.companyname = '$selectedCompany' and jp.joblocation = '$selectedLocation' and jobid not in (select jobid from jobsapplied where userid = '$userId')";
 		}
 		else if($selectedCompany != "allCompanies" && $selectedTitle == "allTitles" && $selectedLocation == "allLocations" && $selectedVisa != "allVisa"){
-			$sql = "select jobId,jobCompany,jobLocation,jobTitle,jobRequirements,jobVisa from jobspostings where jobcompany = '$selectedCompany' and jobvisa = '$selectedVisa' and jobId not in (select jobId from jobsapplied where userId = '$userId')";
+			$sql = "select jp.jobid, uc.companyname, jp.joblocation, jp.jobtitle,jp.jobrequirements, jp.posteddate,jp.visasponser from jobspostings as jp INNER JOIN usercompany as uc ON jp.userid=uc.userid where uc.companyname = '$selectedCompany' and jp.visasponser = '$selectedVisa' and jobid not in (select jobid from jobsapplied where userid = '$userId')";
 		}
 		else if($selectedCompany != "allCompanies" && $selectedTitle == "allTitles" && $selectedLocation == "allLocations" && $selectedVisa == "allVisa"){
-			$sql = "select jobId,jobCompany,jobLocation,jobTitle,jobRequirements,jobVisa from jobspostings where jobcompany = '$selectedCompany' and jobId not in (select jobId from jobsapplied where userId = '$userId')";
+			$sql = "select jp.jobid, uc.companyname, jp.joblocation, jp.jobtitle,jp.jobrequirements, jp.posteddate,jp.visasponser from jobspostings as jp INNER JOIN usercompany as uc ON jp.userid=uc.userid where uc.companyname = '$selectedCompany' and jobid not in (select jobid from jobsapplied where userid = '$userId')";
 		}
 		else if($selectedCompany == "allCompanies" && $selectedTitle != "allTitles" && $selectedLocation != "allLocations" && $selectedVisa != "allVisa"){
-			$sql = "select jobId,jobCompany,jobLocation,jobTitle,jobRequirements,jobVisa from jobspostings where jobtitle = '$selectedTitle' and joblocation = '$selectedLocation' and jobvisa = '$selectedVisa' and jobId not in (select jobId from jobsapplied where userId = '$userId')";
+			$sql = "select jp.jobid, uc.companyname, jp.joblocation, jp.jobtitle,jp.jobrequirements, jp.posteddate,jp.visasponser from jobspostings as jp INNER JOIN usercompany as uc ON jp.userid=uc.userid where jp.jobtitle = '$selectedTitle' and jp.joblocation = '$selectedLocation' and jp.visasponser = '$selectedVisa' and jobid not in (select jobid from jobsapplied where userid = '$userId')";
 		}
 		else if($selectedCompany == "allCompanies" && $selectedTitle != "allTitles" && $selectedLocation != "allLocations" && $selectedVisa == "allVisa"){
-			$sql = "select jobId,jobCompany,jobLocation,jobTitle,jobRequirements,jobVisa from jobspostings where jobtitle = '$selectedTitle' and joblocation = '$selectedLocation' and jobId not in (select jobId from jobsapplied where userId = '$userId')";
+			$sql = "select jp.jobid, uc.companyname, jp.joblocation, jp.jobtitle,jp.jobrequirements, jp.posteddate,jp.visasponser from jobspostings as jp INNER JOIN usercompany as uc ON jp.userid=uc.userid where jp.jobtitle = '$selectedTitle' and jp.joblocation = '$selectedLocation' and jobid not in (select jobid from jobsapplied where userid = '$userId')";
 		}
 		else if($selectedCompany == "allCompanies" && $selectedTitle != "allTitles" && $selectedLocation == "allLocations" && $selectedVisa != "allVisa"){
-			$sql = "select jobId,jobCompany,jobLocation,jobTitle,jobRequirements,jobVisa from jobspostings where jobtitle = '$selectedTitle' and jobvisa = '$selectedVisa' and jobId not in (select jobId from jobsapplied where userId = '$userId')";
+			$sql = "select jp.jobid, uc.companyname, jp.joblocation, jp.jobtitle,jp.jobrequirements, jp.posteddate,jp.visasponser from jobspostings as jp INNER JOIN usercompany as uc ON jp.userid=uc.userid where jp.jobtitle = '$selectedTitle' and jp.visasponser = '$selectedVisa' and jobid not in (select jobid from jobsapplied where userid = '$userId')";
 		}
 		else if($selectedCompany == "allCompanies" && $selectedTitle != "allTitles" && $selectedLocation == "allLocations" && $selectedVisa == "allVisa"){
-			$sql = "select jobId,jobCompany,jobLocation,jobTitle,jobRequirements,jobVisa from jobspostings where jobtitle = '$selectedTitle' and jobId not in (select jobId from jobsapplied where userId = '$userId')";
+			$sql = "select jp.jobid, uc.companyname, jp.joblocation, jp.jobtitle,jp.jobrequirements, jp.posteddate,jp.visasponser from jobspostings as jp INNER JOIN usercompany as uc ON jp.userid=uc.userid where jp.jobtitle = '$selectedTitle' and jobid not in (select jobid from jobsapplied where userid = '$userId')";
 		}
 		else if($selectedCompany == "allCompanies" && $selectedTitle == "allTitles" && $selectedLocation != "allLocations" && $selectedVisa != "allVisa"){
-			$sql = "select jobId,jobCompany,jobLocation,jobTitle,jobRequirements,jobVisa from jobspostings where joblocation = '$selectedLocation' and jobvisa = '$selectedVisa' and jobId not in (select jobId from jobsapplied where userId = '$userId')";
+			$sql = "select jp.jobid, uc.companyname, jp.joblocation, jp.jobtitle,jp.jobrequirements, jp.posteddate,jp.visasponser from jobspostings as jp INNER JOIN usercompany as uc ON jp.userid=uc.userid where jp.joblocation = '$selectedLocation' and jp.visasponser = '$selectedVisa' and jobid not in (select jobid from jobsapplied where userid = '$userId')";
 		}
 		else if($selectedCompany == "allCompanies" && $selectedTitle == "allTitles" && $selectedLocation != "allLocations" && $selectedVisa == "allVisa"){
-			$sql = "select jobId,jobCompany,jobLocation,jobTitle,jobRequirements,jobVisa from jobspostings where joblocation = '$selectedLocation' and jobId not in (select jobId from jobsapplied where userId = '$userId')";
+			$sql = "select jp.jobid, uc.companyname, jp.joblocation, jp.jobtitle,jp.jobrequirements, jp.posteddate,jp.visasponser from jobspostings as jp INNER JOIN usercompany as uc ON jp.userid=uc.userid where jp.joblocation = '$selectedLocation' and jobid not in (select jobid from jobsapplied where userid = '$userId')";
 		}
 		else if($selectedCompany == "allCompanies" && $selectedTitle == "allTitles" && $selectedLocation == "allLocations" && $selectedVisa != "allVisa"){
-			$sql = "select jobId,jobCompany,jobLocation,jobTitle,jobRequirements,jobVisa from jobspostings where jobvisa = '$selectedVisa' and jobId not in (select jobId from jobsapplied where userId = '$userId')";
+			$sql = "select jp.jobid, uc.companyname, jp.joblocation, jp.jobtitle,jp.jobrequirements, jp.posteddate,jp.visasponser from jobspostings as jp INNER JOIN usercompany as uc ON jp.userid=uc.userid where jp.visasponser = '$selectedVisa' and jobid not in (select jobid from jobsapplied where userid = '$userId')";
 		}
-
+		$text = "and jobTitle like '%$searchText%' and jp.isactive = 1";
+		$sql = $sql.$text;
 		$result = mysqli_query($conn,$sql);
 		$json_array = array();
 		while($row = mysqli_fetch_assoc($result)){

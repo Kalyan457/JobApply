@@ -15,7 +15,7 @@
 
 		$conn = mysqli_connect('localhost:8889', 'root', 'root', 'jobapply');
 
-		$sql = "insert into jobsapplied (userId,jobId,appliedDate) values('$userId','$jobId','$appliedDate')";
+		$sql = "insert into jobsapplied (userid,jobid,applieddate) values ('$userId','$jobId','$appliedDate')";
 
 		$result = mysqli_query($conn,$sql);
 
