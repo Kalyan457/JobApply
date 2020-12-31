@@ -24,3 +24,55 @@
 
 ### Login
 
+![Login](images/Login.JPG)
+
+### SignUp
+
+![SignUp](images/SignUp.JPG)
+
+### Profile
+
+![Profile](images/Profile.JPG)
+
+### HomePage
+
+![HomePage](images/HomePage.JPG)
+
+### TrackApplications
+
+![TrackApplications](images/TrackApplications.JPG)
+
+### SavedApplications
+
+![SavedApplications](images/SavedApplications.JPG)
+
+### RecruiterHome
+
+![RecruiterHome](images/RecruiterHome.JPG)
+
+### PostNewJob
+
+![PostNewJob](images/PostNewJob.JPG)
+
+### JobDetails
+
+![JobDetails](images/JobDescription.JPG)
+
+### View Applicants
+
+![ViewApplicants](images/ViewApplicants.JPG)
+
+### Applicant Profile
+
+![ApplicantProfile](images/ApplicantInformation.JPG)
+
+
+
+
+
+
+
+
+
+
+
