@@ -1,4 +1,4 @@
-# JobApply
+# Job Apply
 
 ## Technologies Used
 
@@ -34,27 +34,27 @@
 
 ![Profile](images/Profile.JPG)
 
-### HomePage
+### Home Page
 
 ![HomePage](images/HomePage.JPG)
 
-### TrackApplications
+### Track Applications
 
 ![TrackApplications](images/TrackApplications.JPG)
 
-### SavedApplications
+### Saved Applications
 
 ![SavedApplications](images/SavedApplications.JPG)
 
-### RecruiterHome
+### Recruiter Home
 
 ![RecruiterHome](images/RecruiterHome.JPG)
 
-### PostNewJob
+### Post NewJob
 
 ![PostNewJob](images/PostNewJob.JPG)
 
-### JobDetails
+### Job Details
 
 ![JobDetails](images/JobDescription.JPG)
 
@@ -67,6 +67,13 @@
 ![ApplicantProfile](images/ApplicantInformation.JPG)
 
 
+## Future Work
+
+1. Update the profile to store more information.
+2. Make changes to cater to specific company needs.
+3. Update UI for more convenient use.
+4. Use React Hooks.
+5. Host this on a real server and talk to companies to use the platform and release into market.
 
 
 
