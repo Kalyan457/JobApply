@@ -1,0 +1,25 @@
+.candidateprofile{
+    background-size: auto;
+    width: 100%;
+    max-width: 700px;
+    padding: 15px;
+    margin: auto;
+    height:100%;
+    margin-top: 5%;
+}
+.dropdown{
+    display: block;
+    width: 100%;
+    margin-bottom: 5%;
+}
+
+.errorMsg {
+    color: #cc0000;
+    margin-bottom: 12px;
+}
+
+@media(max-width:600px){
+    .candidateprofile{
+        margin-top: 20%;
+    }
+}

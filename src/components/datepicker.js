@@ -1,7 +1,8 @@
 import React from 'react'
 import { Form } from 'react-bootstrap';
 import {Button,FormFroup,Label, Input, FormGroup} from 'reactstrap';
-class datepicker extends React.Component{
+
+class DatePicker extends React.Component{
     checkdate = ()=> {
         var start_date=document.getElementById("startdate");
         var end_date=document.getElementById("enddate")
@@ -24,4 +25,4 @@ class datepicker extends React.Component{
         )
     }
 }
-export default datepicker;
+export default DatePicker;

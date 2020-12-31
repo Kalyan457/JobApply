@@ -1,0 +1,32 @@
+.formContainer{
+    margin-top: 60px;
+}
+
+.applicantsList{
+    display: inline-flex;
+    flex-direction: row;
+    width: 100%;
+    box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 4%;
+    padding: 15px;
+}
+
+.details{
+    width: 100%;
+}
+
+.sideBar{
+    margin-top: 20px;
+}
+
+.fieldName{
+    color: #17a2b8;
+    font-size: large;
+}
+
+.subHeading {
+    color: darkgreen;
+    font-size: xx-large;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-stretch: ultra-expanded;
+}

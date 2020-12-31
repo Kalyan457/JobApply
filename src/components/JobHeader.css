@@ -4,8 +4,9 @@
     border: 1px solid #B8DAFF;
     width: 85%;
     text-align: center;
-    background-color: #BEE5EB;
+    background-color: #17a2b8;
     margin-left: 2.5%;
+    color: white;
 }
 
 .savedJobsContainer{
@@ -14,9 +15,9 @@
     border: 1px solid #e5edf5;
     width: 85%;
     text-align: center;
-    background-color: #BEE5EB;
+    background-color: #17a2b8;
     margin-left: 2.5%;
-    margin-top: 10%;
+    color: white;
 }
 
 .jobId{
@@ -25,17 +26,46 @@
 .jobCompany{
     width: 10%;
 }
+.jobTitle{
+    width: 10%;
+}
 .jobLocation{
     width: 10%;
 }
-.jobTitle{
-    width: 15%;
-}
 .jobRequirements{
-    width: 55%;
+    width: 45%;
 }
 .jobVisa{
-    width: 5%;
+    width: 10%;
+}
+.postedDate{
+  width: 10%;
+}
+.jobType{
+    width: 15%;
+}
+
+
+.jobIdRecruiter{
+    width: 10%;
+}
+.jobCompanyRecruiter{
+    width: 15%;
+}
+.jobTitleRecruiter{
+    width: 15%;
+}
+.jobLocationRecruiter{
+    width: 15%;
+}
+.jobVisaRecruiter{
+    width: 15%;
+}
+.postedDateRecruiter{
+  width: 15%;
+}
+.jobType{
+    width: 15%;
 }
 
 .headers{

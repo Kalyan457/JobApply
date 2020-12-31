@@ -1,0 +1,37 @@
+.applicantsContainer{
+    display: inline-flex;
+    flex-direction: row;
+    border: 1px solid #B8DAFF;
+    width: 100%;
+    text-align: center;
+    background-color: #17a2b8;
+}
+
+.jobId{
+    width: 5%;
+}
+.applicantsName{
+    width: 20%;
+}
+.jobTitle{
+    width: 15%;
+}
+.appliedDate{
+    width: 10%;
+}
+.jobLocation{
+    width: 15%;
+}
+.jobVisa{
+    width: 15%;
+}
+.jobStatus{
+    width: 10%;
+}
+
+.headers{
+    margin: 18.72px;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: normal;
+}

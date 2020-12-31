@@ -1,0 +1,111 @@
+.applicantsList{
+    display: inline-flex;
+    flex-direction: row;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+    margin-top: 2%;
+}
+
+.jobId{
+    width: 5%;
+}
+.applicantsName{
+    width: 20%;
+}
+.appliedDate{
+    width: 10%;
+}
+.jobLocation{
+    width: 15%;
+}
+.jobTitle{
+    width: 15%;
+}
+.jobVisa{
+    width: 15%;
+}
+.pTags{
+    margin: 10%;
+}
+.jobStatus{
+    width: 10%;
+}
+
+.profileBtn{
+    border-radius: 20%;
+    cursor: pointer;
+}
+
+.profileBtn:hover{
+    background-color: #17a2b8;
+    color: white;
+    border-radius: 30%;
+    cursor: pointer;
+}
+
+.jobDetMob{
+    display: none;
+    background-color: darkcyan;
+}
+
+.viewBtn{
+    background-color: #28A745;
+    border: none;
+    outline: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 6%;
+    margin-left: 1%;
+    font-size: 14px;
+    padding: 0.5%;
+}
+
+/*Media Queries*/
+
+@media (max-width:600px){
+    .applicantsContainer{
+        flex-direction: column;
+    }
+    .applicantsList{
+        flex-direction: column;
+        margin-top: 10%;
+        width: 95%;
+    }
+    
+    .jobLocation{
+        width: 95%;
+        display: flex;
+        flex-direction: row;
+    }
+    .jobTitle{
+        width: 95%;
+        display: flex;
+        flex-direction: row;
+    }
+    .jobVisa{
+        width: 95%;
+        display: flex;
+        flex-direction: row;
+    }
+
+    .jobDetMob{
+        display: flex;
+        background-color: #BEE5EB;
+        width: 32%;
+    }
+
+    .viewBtn{
+        background-color: #28A745;
+        border: none;
+        outline: none;
+        color: white;
+        cursor: pointer;
+        border-radius: 0%;
+        margin-left: 1%;
+        font-size: 14px;
+        padding: 0.5%;
+        width: 95.5%;
+        margin-left: 2.5%;
+    }
+}

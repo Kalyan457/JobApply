@@ -1,7 +1,7 @@
 import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
 
-class degreeDropdown extends Component {
+class DegreeDropdown extends Component {
     render() {
         return (
             <Dropdown options={['one','two']} onChange={this._onSelect} value={defaultOption} placeholder="Select an option" />
@@ -9,5 +9,5 @@ class degreeDropdown extends Component {
     }
 }
 
-export default degreeDropdown;
+export default DegreeDropdown;
 

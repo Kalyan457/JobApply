@@ -1,0 +1,54 @@
+.mainContainer {
+    margin-top: 60px;
+    height: 70em;
+}
+
+.searchContainer {
+    padding: 2%;
+    height: 5em;
+    flex-direction: row;
+    justify-content: left;
+}
+
+.filterContainer {
+    padding: 2%;
+    /* height: 65em; */
+}
+
+.jobContainer {
+    padding: 2%;
+    height: 65em;
+}
+
+.searchBox {
+    justify-content: center;
+    margin-bottom: 10%;
+}
+
+.searchInput {
+    width: 50% !important;
+}
+
+.filterCard {
+    background-color: #17a2b8;
+    color: white;
+}
+
+.subHeading {
+    color: darkgreen;
+    font-size: xx-large;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-stretch: ultra-expanded;
+}
+
+.displayCount {
+    margin-left: 40px;
+    text-justify: right;
+    font-style: italic;
+}
+@media (max-width:600px){
+    .filterContainer {
+        padding: 2%;
+        margin-top: 20%;
+    }
+}

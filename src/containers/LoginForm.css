@@ -1,3 +1,22 @@
+.leftContainer{
+    padding: 1%;
+    margin-top: 6%;
+}
+
+.rightContainer{
+    margin-top: 1%;
+    padding: 2%;
+}
+
+.imgContainer{
+    width: 100%;
+}
+
+.heading{
+    color: #17a2b8;
+    text-align: center;
+}
+
 .loginForm{
     width: 100%;
     max-width: 330px;
@@ -6,3 +25,10 @@
     height:100%
 }
   
+.modalMessage{
+    text-align: center;
+}
+.errorMsg {
+    color: #cc0000;
+    margin-bottom: 12px;
+}

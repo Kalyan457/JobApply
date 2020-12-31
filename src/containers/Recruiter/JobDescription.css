@@ -1,0 +1,52 @@
+.formContainer{
+    margin-top: 40px;
+}
+
+.applicantsList{
+    display: inline-flex;
+    flex-direction: row;
+    width: 100%;
+    box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 4%;
+    padding: 15px;
+}
+
+.updateBtn{
+    color: #17a2b8;
+    width: 100%;
+}
+
+.buttonTab{
+    margin-top: 98px;
+    margin-left: 20px;
+    width: 80%;
+    padding: 20px;
+}
+
+.details{
+    width: 100%;
+}
+
+.sideBar{
+    margin-top: 40px;
+}
+
+.fieldName{
+    color: #17a2b8;
+    font-size: large;
+}
+
+.subHeading {
+    color: darkgreen;
+    font-size: xx-large;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-stretch: ultra-expanded;
+}
+
+.notify{
+    visibility: show;
+}
+
+.notifyDisabled{
+    visibility: hidden;
+}

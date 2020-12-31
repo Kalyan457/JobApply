@@ -1,0 +1,10 @@
+.navTitle:hover {
+    text-decoration: white;
+    background-color: #17a2b8;
+    color: white;
+}
+
+.userNavItem:hover {
+    color: white;
+    background-color: #17a2b8;
+}
